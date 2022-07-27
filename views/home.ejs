@@ -1,0 +1,12 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<% posts.forEach((post)=>{ %>
+  <% const capitalTitle = post.title.charAt(0).toUpperCase() + post.title.slice(1); %>
+  <h2><%= capitalTitle %></h2>
+  <% const formattedDate = new Intl.DateTimeFormat('en-US', {month:'short', day:'2-digit', year:'numeric'}).format(new Date(post.date)) %>
+  <p><span class="dateSpan"><%=formattedDate %> | </span><%= post.content.substring(0, 100)+" ..." %> <a href="/posts/<%=post.title%>">Read more</a></p>
+
+<%});%>
+<%- include("partials/footer") -%>

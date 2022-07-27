@@ -1,0 +1,7 @@
+<%- include("partials/header") -%>
+<div class="dateContainer">
+<%  const formattedDate = new Intl.DateTimeFormat('en-US', {month:'long', day:'2-digit', year:'numeric'}).format(new Date(postDate)); %>
+  <p><%= formattedDate %></p></div>
+<h1><%=postTitle%></h1>
+<p><%= postContent %></p>
+<%- include("partials/footer") -%>
